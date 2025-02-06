@@ -1,58 +1,57 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// Background Image Path (Ensure it's in `public/images/`)
-const backgroundImage = "/images/logo.jpg"; // Correct relative path
-
 const HomePage = () => {
   const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header Section */}
-      <header className="bg-blue-900 text-white py-4 z-50 relative">
-        <div className="container mx-auto flex justify-between items-center px-6">
-          <span className="text-lg font-semibold">📞 Call: +91 9182983242</span>
-          <div className="flex space-x-4">
-            <button
-              onClick={() => navigate("/login")}
-              className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition"
-            >
-              Login
-            </button>
-            <button
-              onClick={() => navigate("/register")}
-              className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition"
-            >
-              Register
-            </button>
-          </div>
+      <header className="bg-blue-900 text-white py-4 px-6 flex justify-between items-center">
+        {/* Small Logo (Redirects to Company History Page) */}
+        <button onClick={() => navigate("/history")}>
+          <img src="/images/logo2.jpg" alt="Road Mates Logo" className="w-12 h-12 rounded-full hover:scale-110 transition" />
+        </button>
+
+        {/* Contact Info */}
+        <span className="text-lg font-semibold">📞 Call: +91 9182983242</span>
+
+        {/* Login & Register Buttons */}
+        <div className="flex space-x-4">
+          <button
+            onClick={() => navigate("/login")}
+            className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition"
+          >
+            Login
+          </button>
+          <button
+            onClick={() => navigate("/register")}
+            className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition"
+          >
+            Register
+          </button>
         </div>
       </header>
 
-      {/* Main Section with Background Image */}
+      {/* Hero Section with Cover Photo */}
       <section
-        className="relative w-full h-screen bg-cover bg-center animate__animated animate__fadeIn"
-        style={{ backgroundImage: `url(${backgroundImage})` }} // Correct syntax for JSX styles
+        className="relative w-full h-screen bg-cover bg-center flex flex-col justify-center items-center text-center text-white"
+        style={{ backgroundImage: "url('/images/logo.jpg')" }}
       >
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-center text-white">
-          {/* Hero Section */}
-          <h1 className="text-6xl font-bold mb-4 animate__animated animate__fadeIn animate__delay-1s">Road Mates</h1>
-          <p className="bg-yellow-400 text-gray-900 text-xl font-semibold px-6 py-2 mt-4 rounded-md animate__animated animate__fadeIn animate__delay-2s">
+        <div className="bg-black bg-opacity-60 w-full h-full flex flex-col justify-center items-center px-6">
+          <p className="bg-yellow-400 text-gray-900 text-xl font-semibold px-6 py-2 mt-4 rounded-md shadow-lg animate-pulse">
             Reserve Now and Get 40% Off!
           </p>
-
-          {/* Reserve Button */}
           <button
             onClick={() => navigate("/category")}
-            className="bg-blue-600 text-white px-6 py-3 mt-6 rounded-lg text-xl hover:bg-blue-700 transition animate__animated animate__fadeIn animate__delay-3s"
+            className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-6 py-3 mt-6 rounded-lg text-xl font-bold hover:scale-110 transition transform shadow-xl"
           >
-            Reserve Now
+            Reserve Now 🚗
           </button>
         </div>
       </section>
 
-      {/* Fun Facts Section */}
+      {/* Why Road Mates? */}
       <section className="bg-blue-800 text-white py-12">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-6">Why Choose Road Mates?</h2>
@@ -73,10 +72,31 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Latest Offers Section */}
+      <section className="bg-gray-100 py-12">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-6 text-blue-900">🔥 Latest Offers 🔥</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+              <h3 className="text-xl font-bold text-blue-800">Weekend Getaway 🚙</h3>
+              <p className="text-gray-600 mt-2">Get 50% off on SUV rentals every weekend.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+              <h3 className="text-xl font-bold text-blue-800">Luxury for Less 💎</h3>
+              <p className="text-gray-600 mt-2">Book a luxury car and enjoy 30% off this month.</p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-lg hover:scale-105 transition">
+              <h3 className="text-xl font-bold text-blue-800">Electric Car Special ⚡</h3>
+              <p className="text-gray-600 mt-2">Save 20% on eco-friendly electric cars.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer Section */}
-      <footer className="bg-gray-800 text-white py-4">
+      <footer className="bg-gray-800 text-white py-6">
         <div className="container mx-auto text-center">
-          <p>© 2025 Road Mates. All rights reserved.</p>
+          <p className="text-lg">© 2025 Road Mates. All rights reserved.</p>
         </div>
       </footer>
     </div>
