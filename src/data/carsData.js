@@ -1,8 +1,8 @@
 const carsData = {
     sedan: [
-      { id: 1, name: "Toyota Camry", imageUrl: "/images/camry.jpg", pricePerHour: 15 },
-      { id: 2, name: "Honda Accord", imageUrl: "/images/accord.jpg", pricePerHour: 18 },
-      { id: 3, name: "Hyundai Elantra", imageUrl: "/images/elantra.jpg", pricePerHour: 16 },
+      { id: 1, name: "Toyota Camry", imageUrl: "/images/sedan1.jpg", pricePerHour: 15 },
+      { id: 2, name: "Honda Accord", imageUrl: "/images/sedan2.webp", pricePerHour: 18 },
+      { id: 3, name: "Hyundai Elantra", imageUrl: "/images/sedan3.webp", pricePerHour: 16 },
     ],
     suv: [
       { id: 4, name: "BMW X5", imageUrl: "/images/bmw-x5.jpg", pricePerHour: 30 },
