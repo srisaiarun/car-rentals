@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../firebaseConfig"; // Import Firebase auth
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const user = auth.currentUser; // Get the current logged-in user
 
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
@@ -19,20 +21,33 @@ const HomePage = () => {
         {/* Contact Info */}
         <span className="text-lg font-semibold hidden md:inline">📞 Call: +91 9182983242</span>
 
-        {/* Login & Register Buttons */}
+        {/* Login & Register or User Profile Button */}
         <div className="flex space-x-4">
-          <button
-            onClick={() => navigate("/login")}
-            className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition duration-300 shadow-md"
-          >
-            Login
-          </button>
-          <button
-            onClick={() => navigate("/register")}
-            className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition duration-300 shadow-md"
-          >
-            Register
-          </button>
+          {!user ? (
+            // Show Login and Register buttons if not logged in
+            <>
+              <button
+                onClick={() => navigate("/login")}
+                className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition duration-300 shadow-md"
+              >
+                Login
+              </button>
+              <button
+                onClick={() => navigate("/register")}
+                className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition duration-300 shadow-md"
+              >
+                Register
+              </button>
+            </>
+          ) : (
+            // Show Profile button if logged in
+            <button
+              onClick={() => navigate("/account")}
+              className="bg-yellow-500 px-4 py-2 rounded-lg text-white hover:bg-yellow-600 transition duration-300 shadow-md"
+            >
+              Profile
+            </button>
+          )}
         </div>
       </header>
 
